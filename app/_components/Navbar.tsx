@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LogoutButton from "./LogoutButton";
 
 export default function Navbar() {
 const session= true;
@@ -9,20 +10,27 @@ const session= true;
           <Link href="/" className="text-xl font-bold text-blue-600">
             Contact Manager
           </Link>
-          <div className="flex items-center space-x-4">   
-            {session} ? (
+          <div className="flex items-center space-x-4">
+            {session ? (
             <>
-            <Link href="/contact" className="hover:text-blue-600">Contacts</Link>
-</>
-
-      ):(
-
-<>
-
-</>)
+              <Link href="/contact" className="hover:text-blue-600 mr-8 font-bold">
+                Contacts
+              </Link>
+              <LogoutButton />
+            </>
+            ):(
+            <>
+              <Link href="/login" className="hover:text-blue-600 mr-6 font-bold">
+                Login
+              </Link>
+              <Link href="/register" className="hover:text-blue-600 font-bold">
+                Register
+              </Link>
+            </>
+            )}
           </div>
         </div>
-      </nav>    
+      </nav>
     </div>
-  )
+  );
 }
