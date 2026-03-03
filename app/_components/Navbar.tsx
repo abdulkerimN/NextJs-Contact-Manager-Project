@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export default function Navbar() {
-// const session= true
+const session= true;
   return (
     <div>
       <nav className="bg-white shadow-sm">
@@ -10,7 +10,17 @@ export default function Navbar() {
             Contact Manager
           </Link>
           <div className="flex items-center space-x-4">   
-           </div>
+            {session} ? (
+            <>
+            <Link href="/contact" className="hover:text-blue-600">Contacts</Link>
+</>
+
+      ):(
+
+<>
+
+</>)
+          </div>
         </div>
       </nav>    
     </div>
