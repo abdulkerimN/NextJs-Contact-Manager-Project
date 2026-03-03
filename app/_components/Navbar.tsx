@@ -2,7 +2,7 @@ import Link from "next/link";
 import LogoutButton from "./LogoutButton";
 
 export default function Navbar() {
-const session= true;
+const session= false;
   return (
     <div>
       <nav className="bg-white shadow-sm">
