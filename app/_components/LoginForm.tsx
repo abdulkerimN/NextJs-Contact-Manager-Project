@@ -25,6 +25,7 @@ export default function LoginForm() {
           className="mt-2 p-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
         />
       </div>
+      <button type="submit" className="w-full flex justify-center px-4 py-2 mt-5 border border-transparent rounded bg-blue-600 text-white">Login</button>
     </form>
   );
 }
