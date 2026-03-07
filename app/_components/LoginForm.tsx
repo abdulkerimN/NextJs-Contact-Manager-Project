@@ -1,8 +1,11 @@
 // use client component
-"use client" 
+"use client"
+import { loginAction } from "../actions/auth";
+
+ 
 export default function LoginForm() {
   return (
-    <form action="" className="space-x-4">
+    <form action={loginAction} className="space-x-4">
       <div>
         <label className="block text-sm font-medium text-gray-700">Email</label>
         <input
@@ -18,7 +21,7 @@ export default function LoginForm() {
           Password
         </label>
         <input
-          type="passwrod"
+          type="password"
           name="password"
           placeholder=" enter ur passwrod"
           required
