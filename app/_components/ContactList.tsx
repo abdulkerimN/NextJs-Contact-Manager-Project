@@ -1,6 +1,8 @@
+'use client'
 import { ContactType } from "../_types/contact";
 import Link from "next/link";
 import { FiEdit } from "react-icons/fi";
+import DeleteButton from "./DeleteButton";
 
 export default function ContactList({ contacts }: { contacts: ContactType[] }) {
   return (
@@ -36,6 +38,7 @@ export default function ContactList({ contacts }: { contacts: ContactType[] }) {
               <FiEdit />
               Edit
             </Link>
+            <DeleteButton contact={contact}/>
           </div>
         </div>
       ))}
