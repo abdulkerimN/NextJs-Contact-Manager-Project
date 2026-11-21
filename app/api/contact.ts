@@ -1,9 +1,23 @@
-import { ContactType } from "../_types/contact";
+import type { ContactType } from "../_types/contact";
+import { getSession } from "../_lib/session";
 
 const API_URL = "http://localhost:3001/contacts";
 
-export async function getContacts() {
-  const res = await fetch(API_URL, { cache: "no-store" });
+// Get contacts belonging to the logged-in user
+export async function getContacts(): Promise<ContactType[]> {
+  const session = await getSession();
+
+  if (!session) {
+    return [];
+  }
+
+  const params = new URLSearchParams({
+    userId: session.id,
+  });
+
+  const res = await fetch(`${API_URL}?${params.toString()}`, {
+    cache: "no-store",
+  });
 
   if (!res.ok) {
     throw new Error("Failed to fetch contacts");
@@ -12,43 +26,57 @@ export async function getContacts() {
   return res.json();
 }
 
-export async function getContactByid(Id: string) {
-  const response = await fetch(`${API_URL}/contacts/${Id}`);
-  return response.json();
+// Get one contact by ID
+export async function getContactById(id: string): Promise<ContactType> {
+  const res = await fetch(`${API_URL}/${id}`, {
+    cache: "no-store",
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch contact");
+  }
+
+  return res.json();
 }
 
-// export async function createContact(contact:ContactType) {
-//   const response = await fetch(`${API_URL}/contacts`,contact);
-//   return response.json();
-// }
-export async function createContact(contact: ContactType) {
-  const response = await fetch(`${API_URL}/contacts`, {
+// Create a contact
+
+export async function createContact(
+  contact: Omit<ContactType, "id">
+): Promise<ContactType> {
+  const res = await fetch(API_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(contact),
   });
-  return response.json();
+
+  if (!res.ok) {
+    throw new Error("Failed to create contact");
+  }
+
+  return res.json();
 }
 
-export async function updateContact(id: string, contact: ContactType) {
-  const response = await fetch(`${API_URL}/contacts/${id}`, {
+
+// Update a contact
+
+export async function updateContact(
+  id: string,
+  contact: Omit<ContactType, "id">
+): Promise<ContactType> {
+  const res = await fetch(`${API_URL}/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(contact),
   });
-  return response.json();
-}
 
-export async function deleteContact(id: string) {
-  const response = await fetch(`${API_URL}/contacts/${id}`, {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-  return response.json();
+  if (!res.ok) {
+    throw new Error("Failed to update contact");
+  }
+
+  return res.json();
 }
