@@ -1,34 +1,50 @@
-// use client component
-"use client"
 import { loginAction } from "../actions/auth";
 
- 
 export default function LoginForm() {
   return (
-    <form action={loginAction} className="space-x-4">
+    <form action={loginAction} className="space-y-4">
       <div>
-        <label className="block text-sm font-medium text-gray-700">Email</label>
+        <label
+          htmlFor="email"
+          className="block text-sm font-medium text-gray-700"
+        >
+          Email
+        </label>
+
         <input
+          id="email"
           type="email"
           name="email"
-          placeholder=" enter ur email"
+          placeholder="Enter your email"
           required
-          className="mt-2 p-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+          className="mt-2 block w-full rounded-md border border-gray-300 p-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring focus:ring-blue-200"
         />
       </div>
-      <div className="mt-4">
-        <label className=" block text-sm font-medium text-gray-700">
+
+      <div>
+        <label
+          htmlFor="password"
+          className="block text-sm font-medium text-gray-700"
+        >
           Password
         </label>
+
         <input
+          id="password"
           type="password"
           name="password"
-          placeholder=" enter ur passwrod"
+          placeholder="Enter your password"
           required
-          className="mt-2 p-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+          className="mt-2 block w-full rounded-md border border-gray-300 p-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring focus:ring-blue-200"
         />
       </div>
-      <button type="submit" className="w-full flex justify-center px-4 py-2 mt-5 border border-transparent rounded bg-blue-600 text-white">Login</button>
+
+      <button
+        type="submit"
+        className="mt-2 flex w-full justify-center rounded-md bg-blue-600 px-4 py-2 text-white transition-colors hover:bg-blue-700"
+      >
+        Login
+      </button>
     </form>
   );
 }

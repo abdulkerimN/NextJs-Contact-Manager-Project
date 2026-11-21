@@ -2,37 +2,47 @@ import Link from "next/link";
 import LogoutButton from "./LogoutButton";
 import { getSession } from "../_lib/session";
 
-export default async function  Navbar() {
-const session= await getSession();
+export default async function Navbar() {
+  const session = await getSession();
 
   return (
-    <div>
-      <nav className="bg-white shadow-sm">
-        <div className="container mx-auto p-4 flex justify-between items-center">
-          <Link href="/" className="text-xl font-bold text-blue-600">
-            Contact Manager
-          </Link>
-          <div className="flex items-center space-x-4">
-            {session ? (
+    <nav className="bg-white shadow-sm">
+      <div className="container mx-auto flex items-center justify-between p-4">
+        <Link href="/" className="text-xl font-bold text-blue-600">
+          Contact Manager
+        </Link>
+
+        <div className="flex items-center gap-4">
+          {session ? (
             <>
-              <Link href="/contact" className="hover:text-blue-600 mr-8 font-bold">
+              <Link
+                href="/contact"
+                className="font-semibold text-gray-700 transition-colors hover:text-blue-600"
+              >
                 Contacts
               </Link>
+
               <LogoutButton />
             </>
-            ):(
+          ) : (
             <>
-              <Link href="/login" className="hover:text-blue-600 mr-6 font-bold">
+              <Link
+                href="/login"
+                className="font-semibold text-gray-700 transition-colors hover:text-blue-600"
+              >
                 Login
               </Link>
-              <Link href="/register" className="hover:text-blue-600 font-bold">
+
+              <Link
+                href="/register"
+                className="font-semibold text-gray-700 transition-colors hover:text-blue-600"
+              >
                 Register
               </Link>
             </>
-            )}
-          </div>
+          )}
         </div>
-      </nav>
-    </div>
+      </div>
+    </nav>
   );
 }

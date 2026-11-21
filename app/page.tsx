@@ -21,7 +21,7 @@ export default function Home() {
           Get Started
         </Link>
 
-        <div className="relative mt-8 aspect-[3/2] w-full">
+        <div className="relative mt-8 aspect-3/2 w-full">
           <Image
             src="/contacts.jpg"
             alt="Contact Manager illustration"
