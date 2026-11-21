@@ -1,14 +1,55 @@
 {
-    "contacts": [{
-        "id": "1",
-        "name": "abdu",
-        "email": "abdu@gmail.com",
-        "userId": "1"
-    }],
-    "users": [{
-        "id": "1",
-        "name": "user1",
-        "email": "user1@gmail.com",
-        "password": "123456"
-    }]
+  "contacts": [
+    {
+      "name": "yain",
+      "email": "kemal@gmail.com",
+      "userId": "86d2",
+      "id": "35f6"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "user1",
+      "email": "user1@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "9269",
+      "name": "adem",
+      "email": "adem@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "8b30",
+      "name": "aki",
+      "email": "aki@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "86d2",
+      "name": "hawa",
+      "email": "hawa@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "2d34",
+      "name": "loop",
+      "email": "lp@gmail.com",
+      "password": "o0llpp"
+    },
+    {
+      "id": "7501",
+      "name": "kola",
+      "email": "kola@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "3c50",
+      "name": "rev",
+      "email": "rev@gmail.com",
+      "password": "654321"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
